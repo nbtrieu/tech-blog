@@ -12,15 +12,13 @@
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <nav class="navbar bg-dark">
+  <div class="flex-column min-100-vh">
+    <nav class="navbar">
         <ul>
-          <li class="inline"><a href="/">Home</a></li>
-          <li class="inline"><a href="/dashboard">Dashboard</a></li>
-          {{#if loggedIn}}
-          <li class="inline"><a href="/login">Login</a></li>
-          {{/if}}
-          <li class="inline"><a href="/logout">Logout</a></li>
+          <li class="nav-item inline"><a href="/">Home</a></li>
+          <li class="nav-item inline"><a href="/dashboard">Dashboard</a></li>
+          <li class="nav-item inline"><a href="/login">Login</a></li>
+          <li class="nav-item inline"><a href="/logout">Logout</a></li>
         </ul>
     </nav>
     <header class="hero">

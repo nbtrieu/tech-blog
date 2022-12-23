@@ -1,9 +1,9 @@
 :root {
-  --primary: #3feee6;
-  --secondary: #55bcc9;
+  --primary: #cafafe;
+  --secondary: #3feee6;
   --tertiary: #97caef;
-  --light-dark: #cafafe;
-  --dark: #38302e;
+  --light-dark: #55bcc9;;
+  --dark: black;
   --accent: #fc4445;
   --border-radius: 0.3rem;
 }
@@ -43,7 +43,7 @@ h2 a {
 }
 
 header {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 main {
@@ -102,6 +102,7 @@ input {
   width: 100%;
   position: fixed;
   background-color: var(--dark);
+  margin-top: -40px;
 }
 
 .nav-item {
@@ -109,7 +110,7 @@ input {
 }
 
 .nav-item a {
-  color: var(--primary);
+  color: var(--secondary);
 }
 
 .hero {
