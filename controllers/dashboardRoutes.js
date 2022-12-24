@@ -6,7 +6,7 @@ const withAuth = require('../utils/auth');
 // GET all posts on dashboard
 // WHY IS THE GET ROUTE NOT WORKING 
 router.get('/', withAuth, async (req, res) => {
-  console.log('starting GET route for all posts on dashboard');
+  // console.log('starting GET route for all posts on dashboard');
   try {
     const dbPostData = await Post.findAll({
       where: {
@@ -15,7 +15,7 @@ router.get('/', withAuth, async (req, res) => {
     });
 
     const posts = dbPostData.map((post) => post.get({ plain: true }));
-    console.log(posts);
+    // console.log(posts);
 
     res.render('dashboard-all-posts', {
       layout: 'dashboard',
@@ -40,5 +40,18 @@ router.get('/new', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+// GET to edit post page
+router.get('/edit/:id', withAuth, async (req, res) => {
+  try {
+    res.render('edit-post', {
+      layout: 'dashboard',
+    });
+
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(err);
+  }
+})
 
 module.exports = router;

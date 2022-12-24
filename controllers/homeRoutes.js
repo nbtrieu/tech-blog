@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
     // Serialize data for handlebars template to read (array of serialized project objects)
     const posts = dbPostData.map((post) => post.get({ plain: true }));
     // Pass serialized data and session flag into handlebars template
-    res.render('home-all-posts', { ...posts });
+    res.render('home-all-posts', { posts });
   } catch (error) {
     console.log(error);
     res.status(500).json(error);

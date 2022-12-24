@@ -170,3 +170,7 @@ input {
   background-color: var(--light-dark);
   color: var(--primary);
 }
+
+.post-info-text {
+  color: var(--secondary);
+}
