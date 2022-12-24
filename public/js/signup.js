@@ -18,11 +18,9 @@ const signupFormHandler = async (event) => {
       console.log('signup ok');
       document.location.replace('/dashboard');
     } else {
-      alert(response.statusText);
+      window.alert('Failed to sign up');
     }
   };
-  };
-
-console.log(signupForm);
+};
 
 document.addEventListener('submit', signupFormHandler);

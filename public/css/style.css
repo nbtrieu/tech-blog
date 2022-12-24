@@ -2,7 +2,8 @@
   --primary: #cafafe;
   --secondary: #3feee6;
   --tertiary: #97caef;
-  --light-dark: #55bcc9;;
+  --dark-primary: #55bcc9;
+  --light-dark: #547579;
   --dark: black;
   --accent: #fc4445;
   --border-radius: 0.3rem;
@@ -59,12 +60,28 @@ p {
   font-size: 1.2rem;
 }
 
+form {
+  background-color: var(--primary);
+}
+
 input {
     width: 100%;
     border: 1px solid #ccc;
     background: #FFF;
     margin: 0 0 5px;
     padding: 10px;
+}
+
+.footer a {
+  position: fixed;
+  display: inline-block;
+  padding: 1em;
+  margin-bottom: .5em;
+  background-color: var(--dark);
+  color: var(--primary);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  bottom: 10px;
 }
 
 .card-header {
@@ -86,7 +103,7 @@ input {
   color: var(--primary);
   border: none;
   outline: none;
-  background-color: var(--light-dark);
+  background-color: var(--dark-primary);
   box-shadow: 3px 3px var(--dark);
   transform: translate(-1px, -1px);
 }
@@ -134,7 +151,7 @@ input {
   padding: 0 10px;
   display: inline-block;
   border-radius: var(--border-radius);
-  box-shadow: 6px 5px var(--light-dark);
+  box-shadow: 6px 5px var(--dark-primary);
 }
 
 .app-title a {
@@ -145,10 +162,11 @@ input {
   background-color: transparent;
 }
 
-form {
-  background-color: var(--primary);
+.input-card {
+  border: 3px solid var(--dark);
 }
 
-.login-card {
-  border: 3px solid var(--dark);
+.list-group-item {
+  background-color: var(--light-dark);
+  color: var(--primary);
 }
