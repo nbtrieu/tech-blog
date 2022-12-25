@@ -16,36 +16,52 @@ router.post('/', withAuth, async (req, res) => {
     req.status(200).json(newPost);
 
   } catch (error) {
-    res.status(400).json(error);
+    res.status(500).json(error);
   }
 })
 
 // PUT route for updating post
-// WHY NOT WORKING
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    console.log('something');
+    console.log('starting PUT post route');
     // array destructuring
     const [affectedRows] = await Post.update(req.body, {
       where: { id: req.params.id },
     });
 
     if (affectedRows > 0) {
-      console.log('affectedRows > 0');
-      console.log(affectedRows);
       res.json(affectedRows);
-      // res.status(200).end();
+      res.status(200).end();
     } else {
       res.status(404).end();
-    }
+    };
+
   } catch (error) {
-    res.status(400).json(error);
+    res.status(500).json(error);
   }
 })
 
 // DELETE post
 router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    console.log('starting DELETE post route');
+    // array destructuring
+    const [affectedRows] = await Post.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
 
+    if (affectedRows > 0) {
+      res.json(affectedRows);
+      res.status(200).end();
+    } else {
+      res.status(404).end();
+    };
+
+  } catch (error) {
+    res.status(500).json(error);
+  }
 })
 
 module.exports = router;

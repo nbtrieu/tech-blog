@@ -1,5 +1,3 @@
-console.log('anything');
-
 const newPostFormHandler = async (event) => {
   console.log('STARTING createPost.js');
   event.preventDefault();

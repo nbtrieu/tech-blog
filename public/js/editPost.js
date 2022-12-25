@@ -9,9 +9,9 @@ const editPostFormHandler = async (event) => {
   const title = document.querySelector('input[name="post-title"]').value.trim();
   const content = document.querySelector('textarea[name="post-content"]').value.trim();
 
-  console.log('--------------');
-  console.log(postId);
-  console.log(`/api/post/${postId}`);
+  // console.log('--------------');
+  // console.log(postId);
+  // console.log(`/api/post/${postId}`);
   await fetch(`/api/post/${postId}`, {
     method: 'PUT',
     body: JSON.stringify({ title, content }),
@@ -22,7 +22,7 @@ const editPostFormHandler = async (event) => {
   document.location.replace('/dashboard');
 };
 
-const deletePostFormHandler = async () => {
+const deleteClickHandler = async () => {
   console.log('STARTING editPost.js for deleting');
 
   await fetch(`/api/post/${postId}`, {
@@ -34,4 +34,4 @@ const deletePostFormHandler = async () => {
   };
 
 document.addEventListener('submit', editPostFormHandler);
-document.addEventListener('reset', deletePostFormHandler);
+document.addEventListener('click', deleteClickHandler);

@@ -35,12 +35,16 @@ router.get('/post/:id', async (req, res) => {
         {
           model: Comment,
           include: [User],
-        }
-      ]
+        },
+      ],
     });
 
-    const post = postData.map((post) => post.get({ plain: true }));
-    res.render('single-post', { post });
+    if (postData) {
+      const post = postData.get({ plain: true });
+      res.render('single-post', { post });
+    } else {
+      res.status(404).end();
+    }
 
   } catch (error) {
     console.log(error);

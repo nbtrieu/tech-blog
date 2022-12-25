@@ -10,12 +10,34 @@
   </div>
 </div>
 
-{{#if post.Comment}}
-
+{{#if post.Comments}}
 <div class="card input-card my-3">
   <div class="card-header d-flex flex-row justify-content-between"></div>
   <div class="card-body">
+    {{#each post.Comments}}
     <p class="card-text">{{post.comment.content}}</p>
     <p class="card-text">— {{User.username}}, {{format_date post.comment.date_created}}</p>
+    {{/each}}
   </div>
 </div>
+{{/if}}
+
+<div class="card input-card my-3">
+  <div class="card-header d-flex flex-row justify-content-between"></div>
+  <div>
+    <form class="card-body" id="comment-form">
+      <input type="hidden" name="post-id" value="{{post.id}}" />
+
+      <div class="mb-3">
+        <label for="comment-input" class="form-label">Comment</label>
+        <textarea class="form-control" name="comment-input"></textarea>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button class="btn" type="submit" id="login-btn">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="/js/comment.js"></script>
