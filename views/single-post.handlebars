@@ -30,9 +30,11 @@
 {{/if}}
 
 <div class="card input-card my-3">
-  <div class="card-header d-flex flex-row justify-content-between"></div>
+  <div class="card-header d-flex flex-row justify-content-between">
+    <h3>Add New Comment</h3>
+  </div>
   <div>
-    <form class="card-body" id="comment-form">
+    <form class="card-body" id="new-comment-form">
       <input type="hidden" name="post-id" value="{{post.id}}" />
 
       <div class="mb-3">

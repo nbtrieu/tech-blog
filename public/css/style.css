@@ -92,6 +92,10 @@ input {
   color: var(--primary);
 }
 
+.card-header h3 {
+  color: var(--primary);
+}
+
 .btn {
   font-size: 1.3rem;
   text-decoration: none;
