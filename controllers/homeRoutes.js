@@ -29,21 +29,18 @@ router.get('/', async (req, res) => {
 // GET one single post on homepage
 router.get('/post/:id', async (req, res) => {
   try {
-    const dbPostData = await Post.findByPk(req.params.id, {
+    const postData = await Post.findByPk(req.params.id, {
       include: [
-        {
-          model: User,
-          attributes: ['username'],
-        },
+        User,
         {
           model: Comment,
-          attributes: ['content', 'date_created'],
+          include: [User],
         }
       ]
     });
 
-    const post = dbPostData.map((post) => post.get({ plain: true }));
-    res.render('single-posts', { ...post });
+    const post = postData.map((post) => post.get({ plain: true }));
+    res.render('single-post', { post });
 
   } catch (error) {
     console.log(error);

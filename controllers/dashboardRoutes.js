@@ -31,6 +31,7 @@ router.get('/', withAuth, async (req, res) => {
 // GET to create new post page
 router.get('/new', withAuth, async (req, res) => {
   try {
+    // Don't need a post object because it hasn't existed!!
     res.render('create-new-post', {
       layout: 'dashboard',
     });
@@ -44,13 +45,24 @@ router.get('/new', withAuth, async (req, res) => {
 // GET to edit post page
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
-    res.render('edit-post', {
-      layout: 'dashboard',
-    });
+    // NEED a post object here to edit!!
+    const postData = await Post.findByPk(req.params.id);
+
+    if (postData) {
+      const post = postData.get({ plain: true });
+      
+      res.render('edit-post', {
+        layout: 'dashboard',
+        post,
+      });
+
+    } else {
+      res.status(404).end();
+    }
 
   } catch (error) {
     console.log(error);
-    res.status(400).json(err);
+    // res.redirect('/login');
   }
 })
 

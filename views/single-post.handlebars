@@ -1,0 +1,21 @@
+<div class="card input-card my-3">
+  <div class="card-header d-flex flex-row justify-content-between">
+    <h2>
+     <a href="/post/{{post.id}}">{{post.title}}</a>
+    </h2>
+    <span class="post-info-text">Posted by {{post.user.username}} on {{format_date post.date_created}}</span>
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{post.content}}</p>
+  </div>
+</div>
+
+{{#if post.Comment}}
+
+<div class="card input-card my-3">
+  <div class="card-header d-flex flex-row justify-content-between"></div>
+  <div class="card-body">
+    <p class="card-text">{{post.comment.content}}</p>
+    <p class="card-text">— {{User.username}}, {{format_date post.comment.date_created}}</p>
+  </div>
+</div>
