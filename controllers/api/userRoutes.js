@@ -56,9 +56,13 @@ router.post('/login', async (req, res) => {
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
+      res.json(`logged out`);
+      console.log('logged out');
       res.status(204).end();
     });
   } else {
+    res.json(`failed to log out`);
+    console.log(`failed to log out`);
     res.status(404).end();
   }
 });

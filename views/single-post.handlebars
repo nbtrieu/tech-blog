@@ -10,13 +10,20 @@
   </div>
 </div>
 
+{{!-- *BUG: THIS IF BLOCK IS NOT RENDERING WHY maybe if syntax is wrong??--}}
 {{#if post.Comments}}
 <div class="card input-card my-3">
-  <div class="card-header d-flex flex-row justify-content-between"></div>
+  <div class="card-header d-flex flex-row justify-content-between">
+    <h3>Comments</h3>
+  </div>
   <div class="card-body">
     {{#each post.Comments}}
-    <p class="card-text">{{post.comment.content}}</p>
-    <p class="card-text">— {{User.username}}, {{format_date post.comment.date_created}}</p>
+    <p class="card-text">
+      {{content}}
+    </p>
+    <p class="card-text">
+      &mdash; {{User.username}}, {{format_date date_created}}
+    </p>
     {{/each}}
   </div>
 </div>

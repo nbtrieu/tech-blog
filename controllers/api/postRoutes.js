@@ -6,7 +6,7 @@ const withAuth = require('../../utils/auth');
 
 // CREATE new post
 router.post('/', withAuth, async (req, res) => {
-  console.log('post request for post');
+  console.log('starting POST route for new post');
   try {
     const newPost = await Post.create({
       ...req.body,
@@ -18,12 +18,12 @@ router.post('/', withAuth, async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
-})
+});
 
 // PUT route for updating post
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    console.log('starting PUT post route');
+    console.log('starting PUT route for editing post');
     // array destructuring
     const [affectedRows] = await Post.update(req.body, {
       where: { id: req.params.id },

@@ -34,4 +34,4 @@ const deleteClickHandler = async () => {
   };
 
 document.addEventListener('submit', editPostFormHandler);
-document.addEventListener('click', deleteClickHandler);
+document.addEventListener('reset', deleteClickHandler);

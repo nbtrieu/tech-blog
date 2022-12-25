@@ -33,7 +33,7 @@ router.get('/post/:id', async (req, res) => {
       include: [
         User,
         {
-          model: Comment,
+          model: Comment, // *BUG: maybe the many-to-many relationships in index.js in models are wrong?
           include: [User],
         },
       ],
@@ -42,6 +42,7 @@ router.get('/post/:id', async (req, res) => {
     if (postData) {
       const post = postData.get({ plain: true });
       res.render('single-post', { post });
+
     } else {
       res.status(404).end();
     }
