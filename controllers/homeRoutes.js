@@ -34,15 +34,7 @@ router.get('/post/:id', async (req, res) => {
     const postData = await Post.findByPk(req.params.id, {
       include: [
         { model: User },
-        // { model: Comment},
       ]
-      // include: [
-        // User,
-        // {
-          // model: Comment, // *BUG: maybe the many-to-many relationships in index.js in models are wrong?
-          // include: [User],
-        // },
-      // ],
     });
 
     const dbCommentData = await Comment.findAll({

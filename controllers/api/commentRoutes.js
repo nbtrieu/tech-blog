@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 });
 
 // POST route for '/api/comment'
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   console.log('starting POST route for new comment');
   try {
     const newComment = await Comment.create({

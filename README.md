@@ -1,69 +1,55 @@
-# tech-blog
+# Tech Blog
+## Description
 
-GIVEN a CMS-style blog site
+This CMS-style blog is built for developers to publish their blog posts and comment on other developers’ posts as well.
 
-WHEN I visit the site for the first time
+## Table of Content
 
-THEN I am presented with the homepage, which includes existing blog posts if any 
-have been posted; navigation links for the homepage and the dashboard; and the 
-option to log in
+* [Installation](#installation)
 
-WHEN I click on the homepage option
+* [Usage](#usage)
 
-THEN I am taken to the homepage
+* [Contributing](#contributing)
 
-WHEN I click on any other links in the navigation
+* [Questions](#questions)   
 
-THEN I am prompted to either sign up or sign in
 
-WHEN I choose to sign up
+## Installation
 
-THEN I am prompted to create a username and password
+To install all necessary dependencies for development purposes, please run the command below:  
 
-WHEN I click on the sign-up button
+``npm i express``  
 
-THEN my user credentials are saved and I am logged into the site
+``npm run start``
 
-WHEN I revisit the site at a later time and choose to sign in
 
-THEN I am prompted to enter my username and password
+## Usage
 
-WHEN I am signed in to the site
+To use this application, open the Note Taker by going to [https://shrouded-falls-58011.herokuapp.com/](https://shrouded-falls-58011.herokuapp.com/). Anyone can view existing blog posts on the homepage without signing up or logging in. But to make your own blog posts or leave a comment, you must sign up and log in. To do so, on the navbar at the top, click on Dashboard or Login to sign up with a username and password and log in. Then, make a post from your Dashboard by filling out the title and content. You can also edit or delete blog posts by clicking on them from your dashboard. All blog posts that you make will appear on your dashboard. To leave comments on other users' blog posts, go to Home and click on each individual blog posts to view post, look at the comment thread, and leave your own comment. If you are idle on the site for more than a set time, you will still be able to view comments but must log in again before you can add, update, or delete comments and blog posts.
 
-THEN I see navigation links for the homepage, the dashboard, and the option to log out
+ 
+![Homepage](./assets/screenshots/Homepage.png)  
 
-WHEN I click on the homepage option in the navigation
+![Signup](./assets/screenshots/Signup.png)  
 
-THEN I am taken to the homepage and presented with existing blog posts that include the post title and the date created
+![Login](./assets/screenshots/Login.png)  
 
-WHEN I click on an existing blog post
+![Create New Post](./assets/screenshots/New-Post.png)  
 
-THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
+![Edit or Delete Post](./assets/screenshots/Edit-Delete.png)  
 
-WHEN I enter a comment and click on the submit button while signed in
+![Dashboard](./assets/screenshots/Dashboard.png)  
 
-THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
+![Comments](./assets/screenshots/Comments.png)  
 
-WHEN I click on the dashboard option in the navigation
 
-THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
+## Contributing
 
-WHEN I click on the button to add a new blog post
+There are many ways in which you can participate in this project.
+Users can contribute to this repo by submitting bugs and feature requests, reviewing source code changes, and making pull requests for any issues they can find.    
 
-THEN I am prompted to enter both a title and contents for my blog post
 
-WHEN I click on the button to create a new blog post
+## Questions
 
-THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
-
-WHEN I click on one of my existing posts in the dashboard
-
-THEN I am able to delete or update my post and taken back to an updated dashboard
-
-WHEN I click on the logout option in the navigation
-
-THEN I am signed out of the site
-
-WHEN I am idle on the site for more than a set time
-
-THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
+For any questions or feedback, please feel free to email me at nbtrieu@uci.edu.
+If you would like to check out more of my projects, please visit [nbtrieu](https://github.com/nbtrieu).
