@@ -28,21 +28,40 @@ router.get('/', async (req, res) => {
 
 // GET one single post on homepage
 router.get('/post/:id', async (req, res) => {
+  console.log('before get postdata');
+  
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
-        User,
-        {
-          model: Comment, // *BUG: maybe the many-to-many relationships in index.js in models are wrong?
-          include: [User],
-        },
-      ],
+        { model: User },
+        // { model: Comment},
+      ]
+      // include: [
+        // User,
+        // {
+          // model: Comment, // *BUG: maybe the many-to-many relationships in index.js in models are wrong?
+          // include: [User],
+        // },
+      // ],
     });
 
+    const dbCommentData = await Comment.findAll({
+      where: {
+        post_id: req.params.id
+      },
+      include: [
+        {
+          model: User,
+          required: true,
+        },
+      ]
+    });
+
+    console.log('postData: ', postData);
     if (postData) {
       const post = postData.get({ plain: true });
-      res.render('single-post', { post });
-
+      const comments = dbCommentData.map((comment) => comment.get({ plain: true }));
+      res.render('single-post', { post, comments }); // *BUG: what if i make a separate const for commentData?...
     } else {
       res.status(404).end();
     }
