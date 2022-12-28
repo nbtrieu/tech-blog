@@ -4,7 +4,6 @@ const { Post } = require('../models');
 const withAuth = require('../utils/auth');
 
 // GET all posts on dashboard
-// WHY IS THE GET ROUTE NOT WORKING 
 router.get('/', withAuth, async (req, res) => {
   // console.log('starting GET route for all posts on dashboard');
   try {
